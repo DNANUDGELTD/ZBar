@@ -4,9 +4,9 @@ SUBTARGET=${1:?}
 OUTDIR=${2:-$TARGET_BUILD_DIR}
 
 # build library for device and simulator
-xcodebuild -target $SUBTARGET -configuration $CONFIGURATION -sdk iphoneos BUILD_DIR=$BUILD_DIR BUILD_ROOT=$BUILD_ROOT\
+xcodebuild BITCODE_GENERATION_MODE=bitcode OTHER_CFLAGS="-fembed-bitcode" -target $SUBTARGET -configuration $CONFIGURATION -sdk iphoneos BUILD_DIR=$BUILD_DIR BUILD_ROOT=$BUILD_ROOT\
     || exit 1
-xcodebuild -target $SUBTARGET -configuration $CONFIGURATION -sdk iphonesimulator BUILD_DIR=$BUILD_DIR BUILD_ROOT=$BUILD_ROOT\
+xcodebuild BITCODE_GENERATION_MODE=bitcode OTHER_CFLAGS="-fembed-bitcode" -target $SUBTARGET -configuration $CONFIGURATION -sdk iphonesimulator BUILD_DIR=$BUILD_DIR BUILD_ROOT=$BUILD_ROOT\
     || exit 1
 
 mkdir -p $OUTDIR

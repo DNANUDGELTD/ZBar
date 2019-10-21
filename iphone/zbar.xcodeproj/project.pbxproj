@@ -693,7 +693,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "exec $SOURCE_ROOT/bin/BuildUniversal.sh libzbar";
+			shellScript = "exec $SOURCE_ROOT/bin/BuildUniversal.sh libzbar\n";
 		};
 		DC48C585121AC7C20047193B /* Build Documentation */ = {
 			isa = PBXShellScriptBuildPhase;
